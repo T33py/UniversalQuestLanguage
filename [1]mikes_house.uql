@@ -1,0 +1,27 @@
+__ID__
+1
+
+__TITLE__
+Mikes house
+
+__TYPE__
+quest
+
+__REQUIRES__
+MIKES_DOG
+
+__DESCRIPTION__
+This quest places the end square 10 spaces away and generates a path to it.
+The player should follow the path to get the reward at the next quest.
+
+__TOOLTIP__
+Mike the Floor Inspector lives here. His dog has gone missing. Could you help find it?
+
+__REWARD__
+2 FREE_SKILL
+
+__DIST__
+10
+
+__ACTIVATES__
+2

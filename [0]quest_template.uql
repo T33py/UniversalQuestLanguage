@@ -1,0 +1,39 @@
+__ID__
+0
+
+__TITLE__
+Template Quest
+
+__TYPE__
+[quest, breadcrumb, conclusion, item]
+
+__DESCRIPTION__
+This quest is supposed to demonstrate the basic format of uql files.
+You can put multiple lines into a section and stuff.
+"__" starts a section
+"#" is a comment
+
+__TOOLTIP__
+Quest format demonstration.
+
+__LVL_HINT__
+42
+
+__PRICE__
+5
+
+__PRICE_TEXT__
+Costs {price} complexity.
+
+__REWARD__
+A JSON with the headers as keys.
+
+__NEXT_QUEST__
+1
+
+__ACTIVATES__
+1
+
+__TRIGGERS__
+# TODO: figure out whether I need triggers - it seems painfull
+on_quest_created
