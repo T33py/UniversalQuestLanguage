@@ -6,13 +6,15 @@ The idea would be that each file describes a "quest event". These events link to
 Then the whole thing can either be parsed into a dict and saved into a propper dataformat for easy use in the game, or it can be read at launch to allow dynamic addition of quests.
 Part of it is having structured and unstructured data, so I can combine set functionality for hooks into efficient template classes in engine and random data that can be stored in a dict and accessed when needed in the game logic.
 
+## Why is it like this
+I just want to make a drag n' drop folder that allows me to start writing quests in .uql files.
 
-
+This should all be done with language/engine native features to avoid messing around with dependencies.
 
 ## Syntax
 
- - "__" starts a section / denotes a piece of information or variable
- - "#" is a comment
+ - "__" starts a section / denotes a piece of information or variable.
+ - "#" is a comment.
 
 ## Vocabulary
 TODO: figure out what to expand??

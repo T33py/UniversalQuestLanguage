@@ -1,11 +1,11 @@
 __ID__
 1
 
-__TITLE__
+__NAME__
 Mikes house
 
 __TYPE__
-quest
+QUEST
 
 __REQUIRES__
 MIKES_DOG
@@ -19,7 +19,9 @@ __TOOLTIP__
 Mike the Floor Inspector lives here. His dog has gone missing. Could you help find it?
 
 __REWARDS__
-2 FREE_SKILL
+# figure out a way to make this into something like { "CURRENCY": 2 }
+# i probably just want to do ">> CURRENCY 2"
+2 CURRENCY
 
 __DIST__
 10

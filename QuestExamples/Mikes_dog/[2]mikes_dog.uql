@@ -1,11 +1,11 @@
 __ID__
 2
 
-__TITLE__
+__NAME__
 Mikes dog
 
 __TYPE__
-item
+ITEM
 
 __REQUIRES__
 LEASH
@@ -18,3 +18,6 @@ Activating this concludes the search for Mikes dog.
 
 __TOOLTIP__
 You found Ben dog, Mike will be very happy to have him back.
+
+__RELATED_QUESTS__
+1

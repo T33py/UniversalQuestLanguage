@@ -1,11 +1,11 @@
 __ID__
 0
 
-__TITLE__
+__NAME__
 Template Quest
 
 __TYPE__
-[quest, breadcrumb, item]
+[QUEST, BREADCRUMB, ITEM]
 
 __DESCRIPTION__
 This quest is supposed to demonstrate the basic format of uql files.
@@ -36,4 +36,4 @@ __ACTIVATES__
 
 __TRIGGERS__
 # TODO: figure out whether I need triggers for my quests - it seems painfull
-on_quest_created
+on_quest_started
