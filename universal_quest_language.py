@@ -12,14 +12,18 @@ def export_uql_to_json(folder_path):
     return uql_content
 
 def turn_folder_to_uql(folder_path):
-	"""
-	Converts all text files in a folder into a single UQL file.
-	"""
-	uql_content = []
-	for filename in os.listdir(folder_path):
-		if filename.endswith(".uql"):
-			uql_content.append(parse_uql_to_dict(os.path.join(folder_path, filename)))
-	return uql_content
+    """
+    Converts all text files in a folder into a single UQL file.
+    """
+    uql_content = []
+    for thing in os.listdir(folder_path):
+        path = os.path.join(folder_path, thing)
+        if os.path.isfile(path):
+            if path.endswith(".uql"):
+                uql_content.append(parse_uql_to_dict(path))
+        elif os.path.isdir(path):
+            uql_content.extend(turn_folder_to_uql(path))
+    return uql_content
 
 def parse_uql_to_dict(file_path):
     """
@@ -41,16 +45,16 @@ def parse_uql_to_dict(file_path):
             current_value = []
         elif line.startswith("#"):  # Ignore comments
             pass
-        elif current_key:  # Collect content for the current section
+        elif current_key:
             current_value.append(line)
 
     if current_key:  # Save the last section
         data[current_key] = "\n".join(current_value).strip()
 
-    post_process_uql(data)
+    post_process_raw_uql(data)
     return data
 
-def post_process_uql(data: dict):
+def post_process_raw_uql(data: dict):
     """
     Post-processes the UQL data. Converting the data into more sofisticated structures.
     """
@@ -77,5 +81,5 @@ def format_id(id: str) -> int:
 # Example usage
 if __name__ == "__main__":
     uql_file_path = "quest_template.uql"
-    json_output = export_uql_to_json('./')
+    json_output = export_uql_to_json('QuestExamples')
     print(json_output)
