@@ -34,10 +34,10 @@ def parse_uql_to_dict(file_path):
 
     for line in lines:
         line = line.strip()
-        if line.startswith("__") and line.endswith("__"):  # Detect section headers
-            if current_key:  # Save the previous section
+        if line.startswith("__") and line.endswith("__"):
+            if current_key:
                 data[current_key] = "\n".join(current_value).strip()
-            current_key = line.strip("_")  # Remove underscores for the key
+            current_key = line.strip("_")
             current_value = []
         elif line.startswith("#"):  # Ignore comments
             pass
@@ -47,7 +47,32 @@ def parse_uql_to_dict(file_path):
     if current_key:  # Save the last section
         data[current_key] = "\n".join(current_value).strip()
 
+    post_process_uql(data)
     return data
+
+def post_process_uql(data: dict):
+    """
+    Post-processes the UQL data. Converting the data into more sofisticated structures.
+    """
+    for key, value in data.items():
+        match key:
+            case 'ID':
+                data[key] = format_id(value)
+            case 'REQUIRES':
+                data[key] = [requirement.strip() for requirement in value.split("\n") if len(requirement.strip()) > 0]
+            case 'PRICE':
+                data[key] = [price.strip() for price in value.split("\n") if len(price.strip()) > 0]
+            case 'REWARDS':
+                data[key] = [reward.strip() for reward in value.split("\n") if len(reward.strip()) > 0]
+            case 'RELATED_QUESTS':
+                data[key] = [ int(related_quest) for related_quest in value.split("\n") if related_quest.isdigit() ]
+            case 'ACTIVATES':
+                data[key] = [ int(activates) for activates in value.split("\n") if activates.isdigit() ]
+            
+    return
+
+def format_id(id: str) -> int:
+    return int(id)
 
 # Example usage
 if __name__ == "__main__":

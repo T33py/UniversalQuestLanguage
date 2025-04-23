@@ -5,7 +5,7 @@ __TITLE__
 Template Quest
 
 __TYPE__
-[quest, breadcrumb, conclusion, item]
+[quest, breadcrumb, item]
 
 __DESCRIPTION__
 This quest is supposed to demonstrate the basic format of uql files.
@@ -20,12 +20,12 @@ __LVL_HINT__
 42
 
 __PRICE__
-5
+YOUR_SOUL
 
 __PRICE_TEXT__
-Costs {price} complexity.
+Exchange {price} to reduce complexity of quest setup.
 
-__REWARD__
+__REWARDS__
 A JSON with the headers as keys.
 
 __NEXT_QUEST__
@@ -35,5 +35,5 @@ __ACTIVATES__
 1
 
 __TRIGGERS__
-# TODO: figure out whether I need triggers - it seems painfull
+# TODO: figure out whether I need triggers for my quests - it seems painfull
 on_quest_created

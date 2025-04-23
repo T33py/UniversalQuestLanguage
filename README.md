@@ -1,6 +1,12 @@
 # Universal Quest Language
-I want to make a format for storing quest data as independent files with a more easily readable format than JSON or XML.
+I want to make a format for storing quest data as independent files with a more easily/humanly readable format than JSON or XML.
+
 The idea would be that each file describes a "quest event". These events link to each other through ID references which should be suficiently flexible.
+
+Then the whole thing can either be parsed into a dict and saved into a propper dataformat for easy use in the game, or it can be read at launch to allow dynamic addition of quests.
+Part of it is having structured and unstructured data, so I can combine set functionality for hooks into efficient template classes in engine and random data that can be stored in a dict and accessed when needed in the game logic.
+
+
 
 
 ## Syntax
@@ -9,47 +15,27 @@ The idea would be that each file describes a "quest event". These events link to
  - "#" is a comment
 
 ## Vocabulary
+TODO: figure out what to expand??
+
+Section headers with parsing.
+
+Any sections not handled by this set should be interpreted by the game code that implements the quests.
 
 ### __ID__
-The quest id - this should be unique
-
-### __TITLE__
-Quests need names/titles/headings or whatever
-
-### __TYPE__
-The type of quest template this maps to. The idea would be that this would be implementation specific for each game.
-[quest, breadcrumb, conclusion, item]
-
-### __DESCRIPTION__
-Description of the contents of the file.
-This is intended to give developer notes that don't get cropped like comments in the file.
-
-### __TOOLTIP__
-The quests tooltip.
-
-### __BLURB__
-The quests blurb, if a tooltip is insuficient
+Integer id of the quest.
 
 ### __REQUIRES__
 This contains a list of things that the player needs to attain.
 This is implementation specific?
 
 ### __PRICE__
-The price of activating this event.
+List of things requirements to activate this event.
 
-### __PRICE_TEXT__
-Template for formatting the price for the UI.
-This is going to be implementation dependent.
+### __REWARDS__
+List of rewards the player recieves for completing the quest.
 
-### __REWARD__
-Reward for completing the quest
-
-### __NEXT_QUEST__
-References for the next quest if this is a questline
+### __RELATED_QUESTS__
+Reference for the other quests this is related to. This is a set of ID's sepperated by newline symbols (\n).
 
 ### __ACTIVATES__
-References to other quest events that need to be activated/set up or whatever when this is triggered.
-
-### __TRIGGERS__
-TODO: figure out whether I need triggers - it seems painfull
-on_quest_created
+References to other quest events that need to be activated/set up or something like that when this is triggered. This is a set of ID's sepperated by newline symbols (\n).

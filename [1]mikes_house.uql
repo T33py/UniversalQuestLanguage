@@ -11,13 +11,14 @@ __REQUIRES__
 MIKES_DOG
 
 __DESCRIPTION__
-This quest places the end square 10 spaces away and generates a path to it.
-The player should follow the path to get the reward at the next quest.
+This quest places the dog DIST spaces away and generates a path to it.
+Then places the leash somewhere along that path.
+The player should recover the dog to complete the quest.
 
 __TOOLTIP__
 Mike the Floor Inspector lives here. His dog has gone missing. Could you help find it?
 
-__REWARD__
+__REWARDS__
 2 FREE_SKILL
 
 __DIST__
@@ -25,3 +26,4 @@ __DIST__
 
 __ACTIVATES__
 2
+3

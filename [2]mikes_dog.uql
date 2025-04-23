@@ -7,7 +7,10 @@ Mikes dog
 __TYPE__
 item
 
-__GIVES__
+__REQUIRES__
+LEASH
+
+__REWARDS__
 MIKES_DOG
 
 __DESCRIPTION__
