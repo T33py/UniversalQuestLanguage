@@ -15,7 +15,11 @@ var rewards: Array[String] = []
 var activates: Array[int] = []
 var related_quests: Array[int] = []
 
-func init(data: Dict):
+var data: Dictionary = {}
+
+@warning_ignore("shadowed_variable")
+func setup(data: Dict):
+	self.data = data
 	id = data.get("id", 0)
 	name = data.get("name", "")
 	type = Types[data.get("type", "QUEST").upper()]
