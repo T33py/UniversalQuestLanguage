@@ -5,7 +5,7 @@ __NAME__
 Template Quest
 
 __TYPE__
-[QUEST, BREADCRUMB, ITEM]
+QUEST
 
 __DESCRIPTION__
 This quest is supposed to demonstrate the basic format of uql files.

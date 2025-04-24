@@ -26,6 +26,9 @@ Any sections not handled by this set should be interpreted by the game code that
 ### __ID__
 Integer id of the quest.
 
+### __TYPE__
+A value from the QuestEvent.Types enum generated based on the values found in these sections
+
 ### __REQUIRES__
 This contains a list of things that the player needs to attain.
 This is implementation specific?
