@@ -61,7 +61,7 @@ def generate_event_class_file(quest_data: list, codegen_info: dict, folder_path:
 			var_default = '[]'
 		elif var_type == 'enum':
 			var_type = 'EventType'
-			var_default = '0'
+			var_default = '0 as EventType'
 		else:
 			var_type = 'String'
 			var_default = '""'
@@ -85,8 +85,13 @@ def generate_event_db(quest_data: list, codegen_info: dict, folder_path: str):
 	for variable in codegen_info['variables']:
 		var = variable.lower()
 		val = f'event["{variable}"]'
-
-		code.append(f'\t\tuql_event.{var} = {val}\n')
+		code.append(f'\t\tif "{variable}" in event:\n')
+		if 'array' in codegen_info['variable_types'][variable].lower():
+			code.append(f'\t\t\tfor thing in {val}: \n')
+			code.append(f'\t\t\t\tuql_event.{var}.append(thing)\n')
+			pass
+		else:
+			code.append(f'\t\t\tuql_event.{var} = {val}\n')
 
 	with open(os.path.join(folder_path, 'uql_event_db.gd'), 'w') as file:
 		file.writelines(code)

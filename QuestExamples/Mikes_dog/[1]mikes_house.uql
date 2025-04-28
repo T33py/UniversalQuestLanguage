@@ -18,6 +18,9 @@ The player should recover the dog to complete the quest.
 __TOOLTIP__
 Mike the Floor Inspector lives here. His dog has gone missing. Could you help find it?
 
+__ICON__
+house
+
 __REWARDS__
 # figure out a way to make this into something like { "CURRENCY": 2 }
 # i probably just want to do ">> CURRENCY 2"

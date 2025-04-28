@@ -13,5 +13,8 @@ LEASH
 __DESCRIPTION__
 This gives the leash item.
 
+__ICON__
+leash
+
 __TOOLTIP__
 You found a leash, it could be used for dragging an animal somewhere.
