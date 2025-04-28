@@ -95,9 +95,11 @@ def extract_codegen_info(data: list) -> dict:
         'max_id': 0,
         'variables': [],
         'variable_types': {},
-        'event_types': [],
+        'event_types': [ 'QUEST' ], # This is Universal Quest Language, also enums need to be defaulted to 0
     }
     for quest in data:
+        if 'ID' not in quest:
+            continue
         if quest['ID'] > codegen_info['max_id']:
             codegen_info['max_id'] = quest['ID']
         for key, value in quest.items():
